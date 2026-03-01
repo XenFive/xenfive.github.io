@@ -1,3 +1,65 @@
-<html>
-  <B>This is a test</B>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VT100 Placeholder</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #000000;
+      color: #ffcc66; /* amber phosphor */
+      font-family: "Courier New", Courier, monospace;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .crt {
+      max-width: 900px;
+      margin: 0 auto;
+      white-space: pre;
+      text-shadow: 0 0 5px #ffcc66;
+    }
+
+    /* Subtle CRT scanlines */
+    .crt::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0px,
+        rgba(0,0,0,0) 2px,
+        rgba(0,0,0,0.15) 3px
+      );
+    }
+
+    .blink {
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="crt">
+┌──────────────────────────────────────────────────────────────┐
+│  VT100 TERMINAL PLACEHOLDER                                   │
+├──────────────────────────────────────────────────────────────┤
+│  System online.                                               │
+│  Awaiting content…                                            │
+│                                                              │
+│  > Ready<span class="blink">_</span>                                                │
+└──────────────────────────────────────────────────────────────┘
+  </div>
+</body>
 </html>
